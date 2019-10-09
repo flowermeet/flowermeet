@@ -183,15 +183,111 @@
     <section class="product">
             <h3 class="product-title">送恋人/爱情鲜花</h3>
             <div class="product-list">
-               <tgoodlist></tgoodlist>
+
+               <tgoodlist :tgoods='tgoods1'
+               v-for='(item,index) in tgoods1'
+               :key="index"
+               :num='index'
+               ></tgoodlist>
+
             </div>
             <div class="product-more">
                 <a href="/aiqingxianhua/" class="product-more-btn">查看更多</a>
             </div>
+    </section>
+
+
+     <section class="product">
+            <h3 class="product-title">送长辈鲜花</h3>
+            <div class="product-list">
+                 <tgoodlist :tgoods='tgoods2'
+               v-for='(item,index) in tgoods2'
+               :key="index"
+               :num='index'
+               ></tgoodlist>
+            </div>
+            <div class="product-more">
+                <a href="/songzhangbeixianhua/" class="product-more-btn">查看更多</a>
+            </div>
         </section>
+
+<!-- 永生花 -->
+<section class="product">
+            <h3 class="product-title">永生花推荐</h3>
+            <div class="product-list product-list-vertical">
+   
+           <tsgoodlist :tgoods='tgoods3'
+               v-for='(item,index) in tgoods3'
+               :key="index"
+               :num='index'></tsgoodlist>
+
+
+            </div>
+            <div class="product-more">
+                <a href="/yongshenghua/" class="product-more-btn">查看更多</a>
+            </div>
+     </section>
+
+
+<!-- 蛋糕推荐 -->
+
+<section class="product">
+            <h3 class="product-title">蛋糕推荐</h3>
+            <div class="product-list product-list-vertical">
+
+             <tsgoodlist :tgoods='tgoods4'
+               v-for='(item,index) in tgoods4'
+               :key="index"
+               :num='index'></tsgoodlist>
+
+
+            </div>
+            <div class="product-more">
+                <a href="https://m.hua.com/cake/" class="product-more-btn">查看更多</a>
+            </div>
+        </section>
+
+<!-- 礼品推荐 -->
+<section class="product">
+            <h3 class="product-title">礼品推荐</h3>
+            <div class="product-list product-list-vertical">
+
+            <tsgoodlist :tgoods='tgoods5'
+               v-for='(item,index) in tgoods5'
+               :key="index"
+               :num='index'></tsgoodlist>
+
+            </div>
+            <div class="product-more">
+                <a href="https://m.hua.com/gifts/" class="product-more-btn">查看更多</a>
+            </div>
+        </section>
+
+
+
+<!-- 巧克力推荐 -->
+<section class="product">
+            <h3 class="product-title">巧克力推荐</h3>
+            <div class="product-list product-list-vertical">
+             <tsgoodlist :tgoods='tgoods6'
+               v-for='(item,index) in tgoods6'
+               :key="index"
+               :num='index'></tsgoodlist>
+           
+            </div>
+            <div class="product-more">
+                <a href="https://m.hua.com/gifts/Chocolates/" class="product-more-btn">查看更多</a>
+            </div>
+        </section>
+
+   <section class="qiyetuangou">
+        <a href="/qiyetuangou/" class="navigation"><img src="https://img02.hua.com/m/home/img/m_home_qiyetuangou.png"></a>
+    </section>
+
 
     <tnav></tnav>
   </div>
+
 </template>
 
 
@@ -201,31 +297,42 @@
 import Vue from 'vue';
 import { Swipe, SwipeItem } from 'vant';
 Vue.use(Swipe).use(SwipeItem);
-
 import tnav from '@/components/t-nav.vue'
 import tgoodlist from '@/components/t-goodlist.vue'
+import tsgoodlist from '@/components/t-goodlistsmall.vue'
 
 export default {
   name: 'home',
   components: {
     tnav,
-    tgoodlist
+    tgoodlist,
+    tsgoodlist
   },
-   created() {
-    //  this.$axios
-    //   .post("/home/GetProductListPrice")
-    //   .then(res => {
-    //     console.log(res);
-    //   });
+  
+  data() {
+  return {
+    tgoods1:[],
+    tgoods2:[],
+    tgoods3:[],
+    tgoods4:[],
+    tgoods5:[],
+    tgoods6:[],
+  }
+  },
 
-      // 发送 POST 请求
- this.axios({
-  method: 'post',
-  url: '/home/GetProductListPrice',
-  data: {
-    itemcodes: 9010966,9012177,9010011,9092112,9012154,9012243,9012055,9012009,9012201,9092149,9012204,9012092,9010736,9012440,1073247,1073185,1073033,1073244,5602016,5010023,5602045,5902028,1060038,1061019,1082001,1077029,1201002,1207010,1204041,1201003
-  }
-  }
+   created() {
+    this.$axios
+      .post("https://m.hua.com/home/GetProductListPrice?itemcodes=9010966,9012177,9010011,9092112,9012154,9012243,9012055,9012009,9012201,9092149,9012204,9012092,9010736,9012440,1073247,1073185,1073033,1073244,5602016,5010023,5602045,5902028,1060038,1061019,1082001,1077029,1201002,1207010,1204041,1201003")
+      .then(res => {
+          this.tgoods1=res.data.Datas.ProductPrices.slice(0,8)
+          this.tgoods2=res.data.Datas.ProductPrices.slice(8,14)
+          this.tgoods3=res.data.Datas.ProductPrices.slice(14,18)
+          this.tgoods4=res.data.Datas.ProductPrices.slice(18,22)
+          this.tgoods5=res.data.Datas.ProductPrices.slice(22,26)
+          this.tgoods6=res.data.Datas.ProductPrices.slice(26,30)
+          console.log(this.tgoods3)
+      });
+   }
 }
 </script>
 
@@ -234,11 +341,6 @@ export default {
 
 <style>
 @charset "utf-8";
-/*  ==========
-*   = 2018移动端首页样式代码 =
-*   = time:2018-12-10 15:13:04 =
-*   = auth:coldclub@hua.com =
-*   ==========*/
 body {
   width: 100%;
   max-width: 640px;
