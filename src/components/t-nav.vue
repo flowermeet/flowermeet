@@ -16,6 +16,11 @@
 
 <script>
 export default {
+    data() {
+      return{
+        active:'',
+      }
+    },
    computed:{
      allnumber() {
        return this.$store.getters.allnumber

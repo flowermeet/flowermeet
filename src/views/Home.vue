@@ -48,33 +48,33 @@
 <!-- 首页导航 -->
 
 <nav class="procate">
-            <div class="procate-item">
-              <router-link to='/sflower' class="navigation">
+            <div class="procate-item" @click="typeSkip(0)">
+              <a class="navigation">
                <img src="https://img02.hua.com/m/home/img/m_home_category_flower.png" alt="鲜花">
                  <p>鲜花</p>
-              </router-link>
+              </a>
 
             </div>
-            <div class="procate-item">
-                <a href="/yongshenghua/" class="navigation">
+            <div class="procate-item" @click="typeSkip(1)">
+                <a  class="navigation">
                     <img src="https://img02.hua.com/m/home/img/m_home_category_ppf.png" alt="永生花">
                     <p>永生花</p>
                 </a>
             </div>
-            <div class="procate-item">
-                <a href="/cake/" class="navigation">
+            <div class="procate-item" @click="typeSkip(2)">
+                <a  class="navigation">
                     <img src="https://img02.hua.com/m/home/img/m_home_category_cake.png" alt="蛋糕">
                     <p>蛋糕</p>
                 </a>
             </div>
-            <div class="procate-item">
-                <a href="/gifts/" class="navigation">
+            <div class="procate-item" @click="typeSkip(3)">
+                <a  class="navigation">
                     <img src="https://img02.hua.com/m/home/img/m_home_category_gift.png" alt="礼品">
                     <p>礼品</p>
                 </a>
             </div>
-            <div class="procate-item">
-                <a href="/gifts/chocolates/" class="navigation">
+            <div class="procate-item" @click="typeSkip(4)">
+                <a class="navigation">
                     <img src="https://img02.hua.com/m/home/img/m_home_category_chocolate.png" alt="巧克力">
                     <p>巧克力</p>
                 </a>
@@ -317,6 +317,12 @@ export default {
     tgoods5:[],
     tgoods6:[],
   }
+  },
+  methods: {
+    // 路由跳转
+    typeSkip(index) {
+      this.$router.push({path:'/sflower', query:{ index:index }});
+    },
   },
 
    created() {
