@@ -1,6 +1,6 @@
 <template>
     <div class="product-item product-item-horizontal">
-              <a href="/product/9010966.html?huaPid=homepage-f101" class="navigation">
+              <a  class="navigation">
                   <div class="product-item-pic">
                       <img :src="`https://img01.hua.com/uploadpic/newpic/${tgoods[num].ItemCode}.jpg_220x240.jpg`" alt="一往情深">
                  </div> 
@@ -15,8 +15,9 @@
                               <p class="product-item-info-sales">已销售7.3万件</p>
                           </div>
                           <div class="product-item-info-bottom-right" data-id="9010966">
-                            <van-icon name="cart-o" class="iconfont"/>
-                            </div>
+                            <van-icon name="cart-o" class="iconfont"
+                            @click="addcart(tgoods[num])"/>
+                          </div>
                       </div>
                   </div>
               </a>
@@ -34,6 +35,12 @@ export default {
    props:['tgoods','num'],
    created() {
     //    console.log(this.tgoods)
+   },
+   methods:{
+    //   加入购物车
+     addcart(obj) {
+        this.$store.commit('addcart',obj)
+     },
    }
 }
 </script>

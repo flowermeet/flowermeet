@@ -49,10 +49,11 @@
 
 <nav class="procate">
             <div class="procate-item">
-                <a href="/flower/" class="navigation">
-                    <img src="https://img02.hua.com/m/home/img/m_home_category_flower.png" alt="鲜花">
-                    <p>鲜花</p>
-                </a>
+              <router-link to='/sflower' class="navigation">
+               <img src="https://img02.hua.com/m/home/img/m_home_category_flower.png" alt="鲜花">
+                 <p>鲜花</p>
+              </router-link>
+
             </div>
             <div class="procate-item">
                 <a href="/yongshenghua/" class="navigation">
@@ -132,10 +133,9 @@
                         </a>
                     </div>
             </div>
+
         <!--mode-2-->
-
             <div class="scene-list">
-
                         <a href="/ranking/" class="scene-item scene-item-bg" style="background-image: url(https://img02.hua.com/m/home/img/m_home_ranklist.png?0718);">
                             <p class="scene-item-name">热销榜</p>
                             <p class="scene-item-desc">集万千宠爱</p>
@@ -179,7 +179,6 @@
 
 
 
-
     <section class="product">
             <h3 class="product-title">送恋人/爱情鲜花</h3>
             <div class="product-list">
@@ -192,7 +191,7 @@
 
             </div>
             <div class="product-more">
-                <a href="/aiqingxianhua/" class="product-more-btn">查看更多</a>
+                <router-link to='/sflower' class="product-more-btn">查看更多</router-link>
             </div>
     </section>
 
