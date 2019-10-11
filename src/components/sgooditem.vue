@@ -1,6 +1,6 @@
 <template>
-<div>
-    <div class="product-item product-item-vertical">
+    <div class="product-item product-item-vertical"
+    @click='turn(datalist[number].ItemCode)'>
         <a class="navigation">
             <div class="product-item-pic">
                 <img :src="'https://img01.hua.com/uploadpic/newpic/'+datalist[number].ItemCode+'.jpg_220x240.jpg'" />
@@ -10,17 +10,23 @@
                 <p class="product-prices">
                       ¥{{datalist[number].Price}}
                  </p>
- 
             </div>
         </a>
     </div>
-</div>
 </template>
 <script>
 export default {
     props:["datalist","number"],
+    methods:{
+      turn(code) {
+       this.$router.push({path:'/detail', 
+         query:{ code:code }
+      })
+     }
+    },
 }
 </script>
+
 <style lang="scss">
     .product-prices {
     font-size: 1rem;

@@ -8,44 +8,17 @@
 
       </div>
       <div class="headerbar-center">
-        <p class="headerbar-content">鲜花</p>
+        <p class="headerbar-content">{{title}}</p>
       </div>
       <div class="headerbar-right">
         <div class="navigation">
           <van-icon name="wap-nav" class="iconfont"/>
           <!--HeaderBarMenu-->
-          <!-- <nav class="headerbar-menu" id="headerbarMenu">
-            <div class="headerbar-menu-item">
-              <a href="/" class="navigation">
-                <i class="iconfont iconfont-home"></i>
-                <span>首页</span>
-              </a>
-            </div>
-            <div class="headerbar-menu-item">
-              <a href="/all.html" class="navigation">
-                <i class="iconfont iconfont-category"></i>
-                <span>分类搜索</span>
-              </a>
-            </div>
-            <div class="headerbar-menu-item">
-              <a href="/Shopping/ShowCart/" class="navigation">
-                <i class="iconfont iconfont-shopcart" id="cartCount"></i>
-                <span>购物车</span>
-              </a>
-            </div>
-            <div class="headerbar-menu-item">
-              <a href="/member/membercenter/" class="navigation">
-                <i class="iconfont iconfont-smile"></i>
-                <span>我的</span>
-              </a>
-            </div>
-          </nav> -->
+
         </div>
 
       </div>
     </header>
-
-
 
     <nav class="filter">
       <div class="filter-item active">
@@ -218,9 +191,12 @@ import Vue from 'vue';
 import { Icon } from 'vant';
 Vue.use(Icon);
 
-
 export default {
-    
+    props:['title'],
+    created() {
+     console.log(13+this.title)
+   }
+
 }
 </script>
 <style lang="scss">

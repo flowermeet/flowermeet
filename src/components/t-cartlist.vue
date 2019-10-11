@@ -14,7 +14,7 @@
       <div class="cart-item-right">
           <div class="cart-item-details">
               <div class="cart-item-pic">
-                  <a href="/product/9012177.html">
+                  <a>
                    <img :src="'https://img01.hua.com/uploadpic/newpic/'+cartdata[index].ItemCode+'.jpg_220x240.jpg'">
                   </a>
               </div>

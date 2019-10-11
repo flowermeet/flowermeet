@@ -12,8 +12,8 @@ export default new Vuex.Store({
       'ItemCode': "1073247",
       'LinePrice': 398,
       'Price': 298,
-        'ischeck': true,
-     'number':1
+       'ischeck': true,
+      'number':1
       },
       {
       'Cpmc': "我如此爱你-口红款999",
@@ -45,7 +45,7 @@ export default new Vuex.Store({
     },
   },
   mutations: {
-    // 购物车+
+    // 购物车+ 
     add(state,index) {
       state.cartdata[index].number++
     },

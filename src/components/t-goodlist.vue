@@ -1,5 +1,7 @@
 <template>
-    <div class="product-item product-item-horizontal">
+
+    <div class="product-item product-item-horizontal" 
+    @click="turn(tgoods[num].ItemCode)">
               <a  class="navigation">
                   <div class="product-item-pic">
                       <img :src="`https://img01.hua.com/uploadpic/newpic/${tgoods[num].ItemCode}.jpg_220x240.jpg`" alt="一往情深">
@@ -16,7 +18,7 @@
                           </div>
                           <div class="product-item-info-bottom-right" data-id="9010966">
                             <van-icon name="cart-o" class="iconfont"
-                            @click="addcart(tgoods[num])"/>
+                            @click.stop="addcart(tgoods[num])"/>
                           </div>
                       </div>
                   </div>
@@ -41,6 +43,12 @@ export default {
      addcart(obj) {
         this.$store.commit('addcart',obj)
      },
+    //  路由传参
+     turn(code) {
+         this.$router.push({path:'/detail', 
+         query:{ code:code }
+         })
+     }
    }
 }
 </script>

@@ -1,6 +1,7 @@
 <template>
   <div class="product-item product-item-vertical">
-      <a href="/product/1073247.html?huaPid=homepage-f301" class="navigation">
+      <a  class="navigation"
+      @click="turn(tgoods[num].ItemCode)">
           <div class="product-item-pic">
             <img :src="`https://img01.hua.com/uploadpic/newpic/${tgoods[num].ItemCode}.jpg_220x240.jpg`">
             </div>
@@ -24,7 +25,15 @@
 
 <script>
 export default {
-   props:['tgoods','num']
+   props:['tgoods','num'],
+   methods:{
+    //  路由传参
+     turn(code) {
+         this.$router.push({path:'/detail', 
+         query:{ code:code }
+         })
+     }
+   }
 }
 </script>
 
