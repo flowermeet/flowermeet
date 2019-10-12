@@ -1,14 +1,17 @@
 <template>
   <div>
     <!-- 头部 -->
-    <header class="headerbar">
+    <header class="headerbar"
+    style='background:#fff;
+    color:#333'>
       <div class="headerbar-left">
         <router-link to="/">
           <van-icon name="arrow-left" class="iconfont" />
         </router-link>
       </div>
       <div class="headerbar-logo">
-        <img src="https://m.hua.com/content/vue/login/static/img/m_hualogo.png" />
+        <img src="../assets/img/logo.png" 
+        style='width:40px'/>
       </div>
       <div class="headerbar-right" id="onlineChat">
         <div class="headerbar-right-kf active">
@@ -150,7 +153,7 @@
       <div class="tabbar-right">
 
         <a class="tabbar-item tabbar-item-block"
-        @click='addcart(detaildata)'
+        @click='addcart(data)'
         >加入购物车</a>
 
         <a
@@ -180,7 +183,8 @@ Vue.use(Area);
       return {
         codeid: this.$route.query.code,
         detaildata: {},
-        show: false
+        show: false,
+        data:[]
       };
     },
     created() {
@@ -191,6 +195,7 @@ Vue.use(Area);
           Vue.set(this.detaildata, 'iscolect', false)
             console.log(this.detaildata)
         });
+     this.data=JSON.parse(sessionStorage.getItem('data'))
     },
     computed: {
       allnumber() {

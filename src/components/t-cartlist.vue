@@ -5,10 +5,11 @@
           <van-icon name="checked" class="iconfont"
            v-if='cartdata[index].ischeck'
            @click="cartdata[index].ischeck=false"/>
-
-          <input type="checkbox" class="check" v-else
-          @click="cartdata[index].ischeck=true">
-          
+          <van-icon name="circle" 
+           v-else
+           class="iconfont"
+            @click="cartdata[index].ischeck=true"
+            style="color:#333;"/>
 
       </div>
       <div class="cart-item-right">

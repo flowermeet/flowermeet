@@ -48,6 +48,7 @@ export default {
          this.$router.push({path:'/detail', 
          query:{ code:code }
          })
+       sessionStorage.setItem('data',JSON.stringify(this.tgoods[this.num]))
      }
    }
 }

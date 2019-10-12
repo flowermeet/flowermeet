@@ -5,6 +5,15 @@ import cart from './views/cart.vue'
 import sflower from './views/sflower.vue'
 import detail from './views/detail.vue'
 
+// import sallflowers from './views/sallflowers.vue'
+// import sppf from './views/sppf.vue'
+// import scake from './views/scake.vue'
+// import sgift from './views/sgift.vue'
+// import sflowerbasket from './views/sflowerbasket.vue'
+// import splant from './views/splant.vue'
+
+
+
 Vue.use(Router)
 
 export default new Router({
@@ -27,5 +36,33 @@ export default new Router({
       path: '/detail',
       component: detail
     },
+     
+     
+    // {
+    //   path: '/sallflowers',//鲜花
+    //   component: sallflowers
+    // },
+    // {
+    //   path: '/sppf',//永生花
+    //   component: sppf
+    // },
+    // {
+    //   path: '/scake',//蛋糕
+    //   component: scake
+    // },
+    // {
+    //   path: '/sgift',//礼品 
+    //   component: sgift
+    // },
+    // {
+    //   path: '/sflowerbasket',//礼篮
+    //   component: sflowerbasket
+    // },
+    // {
+    //   path: '/splant',//绿植
+    //   component: splant
+    // }
+     
+     
   ]
 })
